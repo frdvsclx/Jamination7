@@ -49,6 +49,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1994847599503971726, guid: 0298988595424f14d81ea44c0dddec83, type: 3}
+      propertyPath: m_TagString
+      value: Bear
+      objectReference: {fileID: 0}
     - target: {fileID: 1994847599504263598, guid: 0298988595424f14d81ea44c0dddec83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -162,6 +166,10 @@ PrefabInstance:
     - target: {fileID: 1994847599503971726, guid: 0298988595424f14d81ea44c0dddec83, type: 3}
       propertyPath: m_Name
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994847599503971726, guid: 0298988595424f14d81ea44c0dddec83, type: 3}
+      propertyPath: m_TagString
+      value: Bear
       objectReference: {fileID: 0}
     - target: {fileID: 1994847599504263598, guid: 0298988595424f14d81ea44c0dddec83, type: 3}
       propertyPath: m_LocalPosition.x

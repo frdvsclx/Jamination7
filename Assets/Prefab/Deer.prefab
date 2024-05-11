@@ -822,11 +822,11 @@ GameObject:
   - component: {fileID: 1220761521873753857}
   m_Layer: 0
   m_Name: Controller
-  m_TagString: Untagged
+  m_TagString: Deer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &322368311622023743
 Transform:
   m_ObjectHideFlags: 0
@@ -2491,7 +2491,7 @@ GameObject:
   - component: {fileID: 3529523454992213993}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: Deer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
