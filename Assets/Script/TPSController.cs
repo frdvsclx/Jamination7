@@ -13,7 +13,7 @@ public class TPSController : MonoBehaviour
 
 
     private float lookSpeed = 2f;
-    private float lookXLimit = 45f;
+    private float lookXLimit = 180f;
 
 
     Vector3 moveDirection = Vector3.zero;

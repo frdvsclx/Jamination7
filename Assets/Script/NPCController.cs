@@ -1,141 +1,51 @@
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AI;
-
-
-public class NPCController : MonoBehaviour
-{
-    [SerializeField]
-    private GameObject[] spots;
-    [SerializeField]
-    private float speed = 3f;
-    [SerializeField]
-    private int currentSpot;
-    [SerializeField]
-    private float distanceThreshold = 0.1f;
-    NavMeshAgent Agent;
-
-    private void Start()
-    {
-        Agent = GetComponent<NavMeshAgent>();
-        Agent.speed = speed;
-        SwitchCase();
-
-        currentSpot = -1;
-        ChooseRandomSpot();
-    }
-    
-    void SwitchCase()
-    {
-        string Tag = this.gameObject.tag;
-        switch(Tag)
-        {
-            case "Deer": spots = GameObject.FindGameObjectsWithTag("DeerSpot");
-                break;
-            case "Rabbit": spots = GameObject.FindGameObjectsWithTag("RabbitSpot");
-                break;
-            case "Bird": spots = GameObject.FindGameObjectsWithTag("BirdSpot");
-                break;
-            case "Bear": spots = GameObject.FindGameObjectsWithTag("BearSpot");
-                break;
-        }
-    }
-
-    private void Update()
-    {
-        if (!Agent.pathPending && Agent.remainingDistance < distanceThreshold)
-        {
-            ChooseRandomSpot();
-
-        }
-    }
-
-    void ChooseRandomSpot()
-    {
-        int newSpot = currentSpot;
-        while (newSpot == currentSpot)
-        {
-            newSpot = Random.Range(0, spots.Length);
-
-        }
-        currentSpot = newSpot;
-
-        Agent.SetDestination(spots[currentSpot].transform.position);
-       
-    }
-}
-*/
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class NPCController : MonoBehaviour
 {
-    [SerializeField] private float speed = 3f;
-    [SerializeField] private float distanceThreshold = 0.1f;
-    private NavMeshAgent agent;
-    private GameObject[] spots;
-    private int currentSpotIndex = -1;
+    public NavMeshAgent agent;
+    public float range; //radius of sphere
 
-    private void Start()
+    public Transform centrePoint; //centre of the area the agent wants to move around in
+
+    void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = speed;
-        SwitchCase();
-        ChooseRandomSpot();
+        range = Random.Range(12,32);
+        centrePoint = GameObject.FindGameObjectWithTag("CenterFocus").transform;
     }
 
-    private void SwitchCase()
+    void Update()
     {
-        string tag = this.gameObject.tag;
-
-        switch (tag)
+        if (agent.remainingDistance <= agent.stoppingDistance) //done with path
         {
-            case "Deer":
-                spots = GameObject.FindGameObjectsWithTag("DeerSpot");
-                break;
-            case "Rabbit":
-                spots = GameObject.FindGameObjectsWithTag("RabbitSpot");
-                break;
-            case "Bird":
-                spots = GameObject.FindGameObjectsWithTag("BirdSpot");
-                break;
-            case "Bear":
-                spots = GameObject.FindGameObjectsWithTag("BearSpot");
-                break;
-            default:
-                Debug.LogWarning("Unrecognized tag: " + tag);
-                break;
+            StartCoroutine(WaitAndMove());
         }
     }
 
-    private void Update()
+    IEnumerator WaitAndMove()
     {
-        if (!agent.pathPending && agent.remainingDistance < distanceThreshold)
+        yield return new WaitForSeconds(3); 
+        range= Random.Range(12,32) ;
+        Vector3 point;
+        if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area
         {
-            ChooseRandomSpot();
+            agent.SetDestination(point);
         }
     }
 
-    private void ChooseRandomSpot()
+    bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
-        if (spots == null || spots.Length == 0)
+        Vector3 randomPoint = center + Random.insideUnitSphere * range;
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
         {
-            Debug.LogError("No spots found for NPC.");
-            return;
+            result = hit.position;
+            return true;
         }
-
-        int newSpotIndex = currentSpotIndex;
-        while (newSpotIndex == currentSpotIndex)
-        {
-            newSpotIndex = Random.Range(0, spots.Length);
-        }
-        currentSpotIndex = newSpotIndex;
-
-        agent.SetDestination(spots[currentSpotIndex].transform.position);
-        // Burada hareket animasyonunu oynatmak için gerekli kodu ekleyebilirsiniz.
-        // Örneðin, hareket animasyonu bileþeni (Animator) varsa, burada oynatma kodunu ekleyin.
+        result = Vector3.zero;
+        return false;
     }
 }
+
