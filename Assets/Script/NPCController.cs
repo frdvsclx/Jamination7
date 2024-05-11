@@ -19,9 +19,10 @@ public class NPCController : MonoBehaviour
     {
         Agent = GetComponent<NavMeshAgent>();
         Agent.speed = speed;
+        spots = GameObject.FindGameObjectsWithTag("RabbitSpot");
+
         currentSpot = -1;
         ChooseRandomSpot();
-        spots = GameObject.FindGameObjectsWithTag("RabbitSpot");
     }
 
     private void Update()
