@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - component: {fileID: 140042396163994211}
   - component: {fileID: 140042396154961333}
-  - component: {fileID: 140042396181702389}
   m_Layer: 0
   m_Name: Rabbit_PBR
   m_TagString: Untagged
@@ -91,37 +90,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!205 &140042396181702389
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140042396164353539}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.00000086426735, y: 0.15770544, z: 0.015792698}
-  m_Size: 0.5446436
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.25
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 140042396150686581}
-  - screenRelativeHeight: 0.125
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 140042396150686583}
-  - screenRelativeHeight: 0.0625
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 140042396150686577}
-  - screenRelativeHeight: 0.01
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 140042396150686579}
-  m_Enabled: 1
 --- !u!1 &140042396164353541
 GameObject:
   m_ObjectHideFlags: 0
