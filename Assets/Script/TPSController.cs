@@ -21,6 +21,8 @@ public class TPSController : MonoBehaviour
 
 
     CharacterController characterController;
+    public Vector3 cameraOffset = new Vector3(0, 2, -4);
+    public float cameraFollowSpeed = 5f;
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -29,12 +31,14 @@ public class TPSController : MonoBehaviour
         Camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
         Cam = GameObject.FindAnyObjectByType<Camera>();
 
+
     }
 
     void Update()
     {
         Move();
         MouseMove();
+        CamMove();
 
     }
 
@@ -55,6 +59,15 @@ public class TPSController : MonoBehaviour
 
 
 
+    }
+
+    void CamMove()
+    {
+        Vector3 targetPosition = transform.position + transform.TransformDirection(cameraOffset);
+        Camera.position = Vector3.Lerp(Camera.position, targetPosition, cameraFollowSpeed * Time.deltaTime);
+        Camera.LookAt(transform);
+        Quaternion targetRotation = Quaternion.LookRotation(transform.position - Camera.position);
+        Camera.rotation = Quaternion.Slerp(Camera.rotation, targetRotation, cameraFollowSpeed * Time.deltaTime);
     }
 
     void MouseMove()
