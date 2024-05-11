@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RenkMenu
   m_EditorClassIdentifier: 
   colorMode: 3
-  topLeft: {r: 0.7830189, g: 0.6131478, b: 0.34349412, a: 1}
-  topRight: {r: 0.78431374, g: 0.6156863, b: 0.34509805, a: 1}
+  topLeft: {r: 1, g: 0.1641509, b: 0.1641509, a: 1}
+  topRight: {r: 1, g: 0, b: 0.07839346, a: 1}
   bottomLeft: {r: 0.4056604, g: 0.35741156, b: 0.2774564, a: 1}
-  bottomRight: {r: 0.40392157, g: 0.35686275, b: 0.2784314, a: 1}
+  bottomRight: {r: 0, g: 0, b: 0, a: 1}

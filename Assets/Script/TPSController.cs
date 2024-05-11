@@ -82,4 +82,10 @@ public class TPSController : MonoBehaviour
         transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
 
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+
+        Debug.Log("A", collision.transform.gameObject);
+    }
 }
