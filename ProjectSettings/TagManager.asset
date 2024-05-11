@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - RabbitSpot
+  - Deer
+  - Bear
+  - Bird
+  - Rabbit
+  - Cell
+  - DeerSpot
+  - BirdSpot
+  - BearSpot
   layers:
   - Default
   - TransparentFX

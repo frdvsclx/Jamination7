@@ -546,7 +546,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1994847599504263598}
   - component: {fileID: 1994847599511266818}
-  - component: {fileID: 1994847599483477314}
   m_Layer: 0
   m_Name: Bear_PBR
   m_TagString: Untagged
@@ -595,37 +594,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!205 &1994847599483477314
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994847599503971726}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0.01837504, y: 0.8829491, z: 0.22188842}
-  m_Size: 2.9454653
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.25
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1994847599507085506}
-  - screenRelativeHeight: 0.125
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1994847599507085504}
-  - screenRelativeHeight: 0.0625
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1994847599507085510}
-  - screenRelativeHeight: 0.01
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1994847599507085508}
-  m_Enabled: 1
 --- !u!1 &1994847599503971744
 GameObject:
   m_ObjectHideFlags: 0

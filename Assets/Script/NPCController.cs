@@ -19,10 +19,26 @@ public class NPCController : MonoBehaviour
     {
         Agent = GetComponent<NavMeshAgent>();
         Agent.speed = speed;
-        spots = GameObject.FindGameObjectsWithTag("RabbitSpot");
+        SwitchCase();
 
         currentSpot = -1;
         ChooseRandomSpot();
+    }
+
+    void SwitchCase()
+    {
+        string Tag = this.gameObject.tag;
+        switch(Tag)
+        {
+            case "Deer": spots = GameObject.FindGameObjectsWithTag("DeerSpot");
+                break;
+            case "Rabbit": spots = GameObject.FindGameObjectsWithTag("RabbitSpot");
+                break;
+            case "Bird": spots = GameObject.FindGameObjectsWithTag("BirdSpot");
+                break;
+            case "Bear": spots = GameObject.FindGameObjectsWithTag("BearSpot");
+                break;
+        }
     }
 
     private void Update()
