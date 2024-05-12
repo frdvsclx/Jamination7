@@ -13,7 +13,7 @@ public class TPSController : MonoBehaviour
 
 
     private float lookSpeed = 2f;
-    private float lookXLimit = 180f;
+    private float lookXLimit = 60f;
 
 
     Vector3 moveDirection = Vector3.zero;
@@ -77,15 +77,16 @@ public class TPSController : MonoBehaviour
 
 
         rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-        rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+        rotationX = Mathf.Clamp(rotationX,-lookXLimit,lookXLimit);
+
         Cam.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+
+        transform.rotation *= Quaternion.Euler(0,Input.GetAxis("Mouse X")*lookSpeed, 0);
+        //rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+        //Cam.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+        //transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
 
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
 
-        Debug.Log("A", collision.transform.gameObject);
-    }
 }

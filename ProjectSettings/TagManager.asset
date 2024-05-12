@@ -9,6 +9,7 @@ TagManager:
   - Rabbit
   - Follow
   - NPC
+  - Coll
   layers:
   - Default
   - TransparentFX

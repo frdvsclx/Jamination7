@@ -27,7 +27,6 @@ public class NPCController : MonoBehaviour
     IEnumerator WaitAndMove()
     {
         yield return new WaitForSeconds(3); 
-        range= Random.Range(12,32) ;
         Vector3 point;
         if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area
         {
