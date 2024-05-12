@@ -10,7 +10,10 @@ public class GameAudioManager : MonoBehaviour
 
     [Header("----------Audio Clip----------")]
     public AudioClip background;
- 
+    public AudioClip rain;
+    public AudioClip transform;
+
+
 
     private void Start()
     {
