@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class EmptyFollowScript : MonoBehaviour
 {
-    private GameObject Child;
 
-    private void Start()
+    private void Update()
     {
-        
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.activeSelf)
+            {
+                this.transform.position = child.transform.position;
+                break;
+            }
+        }
     }
 }
