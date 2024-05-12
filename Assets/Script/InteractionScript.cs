@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class InteractionScript : MonoBehaviour
 {
-
     private void OnTriggerStay(Collider other)
     {
+
+ 
         // Eðer E tuþuna basýldýysa ve diðer obje NPC etiketine sahipse
         if (Input.GetKeyDown(KeyCode.E) && other.gameObject.CompareTag("NPC"))
         {
             // Ebeveyn objeyi bul
             Transform parent = other.transform.parent;
-           
+           Debug.Log(other.tag);
             other.gameObject.SetActive(false);
 
             // Ebeveyn objedeki tüm çocuklarý dolaþ

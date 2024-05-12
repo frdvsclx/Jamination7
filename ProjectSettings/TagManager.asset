@@ -10,6 +10,8 @@ TagManager:
   - Follow
   - NPC
   - Coll
+  - MiniMap
+  - Hero
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - UI
   - Walkable
   - 
-  - 
+  - MiniMap
   - 
   - 
   - 
