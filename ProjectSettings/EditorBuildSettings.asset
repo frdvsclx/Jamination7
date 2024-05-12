@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: "Assets/Scenes/Main Men\xFC.unity"
     guid: bfc151bcea936194ca05db4c5ec0b392
   - enabled: 1
-    path: Assets/Scenes/Void.unity
+    path: Assets/Scenes/Demo.unity
     guid: 7cd0006989a12df4b9e629552abf9654
   - enabled: 1
     path: Assets/Scenes/Credit.unity

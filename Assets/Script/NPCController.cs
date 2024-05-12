@@ -6,14 +6,17 @@ public class NPCController : MonoBehaviour
 {
     public NavMeshAgent agent;
     public float range; //radius of sphere
-
+    private Animator anim;
     public Transform centrePoint; //centre of the area the agent wants to move around in
 
     void Start()
     {
+
         agent = GetComponent<NavMeshAgent>();
         range = Random.Range(12,32);
         centrePoint = GameObject.FindGameObjectWithTag("CenterFocus").transform;
+        anim = GetComponent<Animator>();
+        anim.SetBool("kosuyor", false);
     }
 
     void Update()
@@ -26,11 +29,14 @@ public class NPCController : MonoBehaviour
 
     IEnumerator WaitAndMove()
     {
+        anim.SetBool("duruyor",true);
         yield return new WaitForSeconds(3); 
         Vector3 point;
         if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area
         {
             agent.SetDestination(point);
+            anim.SetBool("duruyor", false);
+            anim.SetBool("kosuyor", true);
         }
     }
 
